@@ -92,7 +92,7 @@ li {
     color: var(--white);
 }
 
-#createDiv {
+#answerDiv {
     margin-top: 20px;
     border-top: 1px solid var(--gray);
 }
@@ -134,7 +134,7 @@ body {
     min-width: 640px;
 }
 /* Resized main-content to fit 640px  */
-#wrapper {
+#main {
 position: absolute;
 left: 10%;
 }

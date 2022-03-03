@@ -29,7 +29,7 @@ var questions = [
 
 //variables
 var score = 0;
-var questionIndex = 0;
+var questionsIndex = 0;
 var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startQuiz");
 var questionsDiv = document.querySelector("#questionsDiv");
@@ -40,3 +40,59 @@ var timePenalty = 10;
 var createUl = document.createElement("ul");
 
 //start quiz function
+function start(questionsIndex) {
+    
+    //clear existing data
+    questionsDiv.innerHTML = "";
+    createUl.innerHTML = "";
+    
+    // questions array for loop
+    for (var i = 0; i < questions.length; i++) {
+        var displayQuestion = questions[questionsIndex].title;
+        questionsDiv.textContent = displayQuestion;
+
+        var possibleAnswers = questions[questionsIndex].choices;
+    }
+
+    //display answers for the questions using for each
+    possibleAnswers.forEach(function(choice){
+        var listItem = document.createElement("li");
+        listItem.textContent = choice;
+        questionsDiv.appendChild(createUl);
+        createUl.appendChild(listItem);
+        listItem.addEventListener("click", (checkAnswer));
+    });
+};
+
+//function for checking the answers
+function checkAnswer(event) {
+    var selected = event.target;
+
+    if (selected.matches("li")) {
+        var answerDiv = document.createElement("div");
+        answerDiv.setAttribute("id", "answerDiv");
+        //if correct answer
+        if (selected.textContent == questions[questionsIndex].answer) {
+            score++;
+            answerDiv.textContent = "Correct! The answer is: " + questions[questionsIndex].answer;
+        //if incorrect answer deduct 10 seconds   
+        }else {
+            timeLeft = timeLeft - timePenalty;
+            answerDiv.textContent = "Wrong! The correct answer is: " + questions[questionsIndex].answer;
+        }
+    }
+    //move on to next question
+    questionsIndex++;
+
+    if (questionsIndex >= questions.length) {
+        quizComplete();
+    }
+}
+
+//append the page when quiz ends
+function quizComplete() {
+    //clear existing data
+    questionsDiv.innerHTML = "";
+    createUl.innerHTML = "";
+
+}
