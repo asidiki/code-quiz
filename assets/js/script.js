@@ -95,4 +95,44 @@ function quizComplete() {
     questionsDiv.innerHTML = "";
     createUl.innerHTML = "";
 
+    //create heading
+    var createdH1 = document.createElement("h1");
+    createdH1.setAttribute("id", "createdh1");
+    createdH1.textContent = "All done!"
+
+    questionsDiv.appendChild(createdH1);
+
+    //create p
+    var createdP = document.createElement("p");
+    createdP.setAttribute("id", "createdP");
+
+    questionsDiv.appendChild(createdP);
+
+    //calculate score
+    if (timeLeft >= 0) {
+        var timeRemaining = timeLeft;
+        var createdP2 = document.createElement("p");
+        clearInterval(0);
+        createdP.textContent = "Your final score is: " + timeRemaining;
+        
+        questionsDiv.appendChild(createdP2);
+    }
+
+    //create Label
+    var createdLabel = document.createElement("label");
+    createdLabel.setAttribute("id", "createdLabel");
+    createdLabel.textContent = "Enter your initials: ";
+
+    questionsDiv.appendChild(createdLabel);
+
+    //usr input textbox
+    var createdInput = dicument.createElement("input")
+    createdInput.setAttribute("type", "text");
+    createdInput.setAttribute("id", "initials");
+    createdInput.textContent = "";
+
+    questionsDiv.appendChild(createdInput);
+
+
+
 }

@@ -10,7 +10,7 @@
     top: 20%;
     width: 500px;
     height: 500px;
-    border: 1px solid var(--purple);
+    border: 5px solid var(--purple);
 }
 #startQuiz {
     background-color: var(--purple);
