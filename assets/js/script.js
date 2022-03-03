@@ -152,7 +152,7 @@ function quizComplete() {
     questionsDiv.appendChild(createdLabel);
 
     //usr input textbox
-    var createdInput = dicument.createElement("input")
+    var createdInput = document.createElement("input")
     createdInput.setAttribute("type", "text");
     createdInput.setAttribute("id", "initials");
     createdInput.textContent = "";
