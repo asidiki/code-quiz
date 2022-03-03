@@ -62,7 +62,7 @@ textarea {
     margin: 20px;
 }
 
-#Submit {
+#submit {
     background-color: var(--purple);
     margin-left: 33%;
     padding: 15px 32px;
@@ -73,6 +73,7 @@ textarea {
 label {
     margin-right: 10px;
 }
+
 input {
     margin-bottom: 20px;
     width: 50%;
