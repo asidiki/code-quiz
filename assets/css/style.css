@@ -27,7 +27,7 @@
     float: right;
 }
 
-#goBack {
+#back {
     background-color: var(--purple);
     position: relative;
     padding: 10px;

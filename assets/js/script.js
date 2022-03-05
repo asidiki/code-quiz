@@ -21,7 +21,7 @@ var questions = [
         answer: "quotes"
     },
     {
-        title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+        title: "A very useful tool for use during development and debugging for printing content to the debugger is:",
         choices: ["Javascript", "terminal / bash", "for loops", "console log"],
         answer: "console log"
     }
@@ -172,10 +172,12 @@ function quizComplete() {
     createdSubmit.addEventListener("click", function() {
         var initials = createdInput.value;
 
-        if (!initials) {
-            window.alert("initials must be entered!")
+        while (!initials) {
+            initials = window.prompt("initials must be entered!")
+        }
+    
 
-        }else {
+        if (initials) {
             var finalScore = {
                 initials: initials,
                 score: timeRemaining
