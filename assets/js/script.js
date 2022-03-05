@@ -36,23 +36,22 @@ var questionsDiv = document.querySelector("#questionsDiv");
 var main = document.querySelector("#main");
 var timeLeft = 80;
 var timePenalty = 10;
-var holdInterval = 0
+
 var createUl = document.createElement("ul");
 
-timer.addEventListener("click", function () {
-    // We are checking zero because its originally set to zero
-    if (holdInterval === 0) {
-        holdInterval = setInterval(function () {
+
+timer.addEventListener("click", function() {
+    //timer to start with the quiz and stop when game ends
+        var holdInterval = setInterval(function() {
             timeLeft--;
             currentTime.textContent = "Time: " + timeLeft;
 
-            if (timeLeft <= 0) {
+            if (timeLeft === 0 || questionsIndex === questions.length) {
                 clearInterval(holdInterval);
                 quizComplete();
                 currentTime.textContent = "Time's up!";
             }
         }, 1000);
-    }
     start(questionsIndex);
 });
 
@@ -108,6 +107,7 @@ function checkAnswer(event) {
         // All done will append last page with user stats
         quizComplete();
         answerDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+
     } else {
         start(questionsIndex);
     }
@@ -138,9 +138,8 @@ function quizComplete() {
     if (timeLeft >= 0) {
         var timeRemaining = timeLeft;
         var createdP2 = document.createElement("p");
-        clearInterval(0);
-        createdP.textContent = "Your final score is: " + timeRemaining;
         
+        createdP.textContent = "Your final score is: " + timeRemaining;
         questionsDiv.appendChild(createdP2);
     }
 
