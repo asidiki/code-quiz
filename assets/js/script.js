@@ -106,7 +106,6 @@ function checkAnswer(event) {
     if (questionsIndex >= questions.length) {
         // All done will append last page with user stats
         quizComplete();
-        answerDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
 
     } else {
         start(questionsIndex);
@@ -166,6 +165,10 @@ function quizComplete() {
 
     questionsDiv.appendChild(createdSubmit);
 
+    var showCorrectAnswers = document.createElement("p")
+
+    showCorrectAnswers.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+    questionsDiv.appendChild(showCorrectAnswers);
 
     //event listener and local storage for initials
     createdSubmit.addEventListener("click", function() {
